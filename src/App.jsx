@@ -32,7 +32,7 @@ export default function App() {
     <>
       <nav className="nav">
         <div className="nav-logo" onClick={() => navigate("home")}>
-          PCTO Experience
+          FSL Experience
         </div>
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           {navItems.map((item) => (

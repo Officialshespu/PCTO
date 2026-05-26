@@ -7,7 +7,7 @@ export default function Footer({ navigate }) {
     <footer className="footer">
       <div className="footer-inner">
         <div>
-          <div className="footer-brand">PCTO Experience</div>
+          <div className="footer-brand">FSL Experience</div>
           <p className="footer-sub">
             Il mio percorso di crescita professionale attraverso tre stage formativi.
           </p>
@@ -26,7 +26,7 @@ export default function Footer({ navigate }) {
         </div>
       </div>
       <div className="footer-bottom">
-        © 2026 PCTO Experience · Simone · Tutti i diritti riservati.
+        © 2026 FSL Experience · Simone · Tutti i diritti riservati.
       </div>
     </footer>
   );

@@ -12,12 +12,12 @@ export default function Home({ navigate }) {
         <div className="hero-bg" />
         <div className="hero-grid" style={{ padding: "0 1rem" }}>
           <div>
-            <p className="hero-eyebrow">Portfolio PCTO 25-26</p>
+            <p className="hero-eyebrow">Portfolio FSL 25-26</p>
             <h1 className="hero-title">
-              Ciao, sono <em>Simone</em>
+              Esperienza <em>FSL</em>
             </h1>
             <p className="hero-body">
-              studente appassionato di tutto ciò che riguarda il mondo scientifico. Benvenuto nel mio portfolio PCTO —
+              studente appassionato di tutto ciò che riguarda il mondo scientifico. Benvenuto nel mio portfolio FSL —
               il racconto di tre esperienze professionali che hanno segnato la mia crescita.
             </p>
             <div className="hero-stats">
@@ -65,7 +65,7 @@ export default function Home({ navigate }) {
           <h2 className="section-title">Un percorso di crescita reale</h2>
         </div>
         <p style={{ color: "var(--muted)", lineHeight: 1.8, maxWidth: 700, marginBottom: "1rem" }}>
-          Sono uno studente guidato da una forte passione per il mondo scientifico e da un'innata curiosità verso il funzionamento e la realizzazione delle cose. Nel mio percorso, ho esplorato diverse sfaccettature dell'informatica, maturando competenze pratiche nello sviluppo di servizi lato server e nell'amministrazione di sistema (system administration).
+          Sono uno studente guidato da una forte passione per il mondo scientifico e da un'innata curiosità verso il funzionamento e la realizzazione delle cose. Nel mio percorso ho esplorato diverse sfaccettature dell'informatica, maturando competenze pratiche nello sviluppo di servizi lato server e nell'amministrazione di sistema (system administration).
         </p>
       </section>
 
