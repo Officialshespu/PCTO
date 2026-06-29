@@ -62,7 +62,7 @@ export const stages = [
     number: "01",
     title: "codemonster.srl",
     shortTitle: "CodeMonster",
-    period: "1 mese (gennaio-febbraio)",
+    period: "1 month (January-February)",
     location: "La Coruña, Spain",
     tutor: "Aleandro",
     description: "My first internship was a foundational experience that introduced me to the professional tech industry",

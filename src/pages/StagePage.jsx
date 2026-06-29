@@ -41,9 +41,11 @@ const mediaByStageId = {
     gallery: stageOneGallery,
     document: {
       title: "Erasmus PDF",
-      description: "Documento allegato allo stage 1",
+      description: "Document attached to stage 1",
       url: erasmusPdf,
-      label: "Anteprima del PDF Erasmus",
+      label: "Erasmus PDF Preview",
+      descriptionIt: "Documento allegato allo stage 1",
+      labelIt: "Anteprima del PDF Erasmus",
     },
   },
   2: {
@@ -75,7 +77,7 @@ export default function StagePage({ stageId, navigate }) {
       >
         <div className="stage-hero-inner">
           <button className="stage-back" onClick={() => navigate("home")}>
-            ← Torna alla Home
+            ← {stageId === 1 ? "Back to Home" : "Torna alla Home"}
           </button>
           <p className="stage-eyebrow" style={{ color: s.color }}>Stage {s.number}</p>
           <h1 className="stage-h1">{s.title}</h1>
@@ -92,12 +94,12 @@ export default function StagePage({ stageId, navigate }) {
         {/* Main content */}
         <div>
           <div className="stage-section stage-intro">
-            <h2>La Mia Esperienza</h2>
+            <h2>{stageId === 1 ? "My Experience" : "La Mia Esperienza"}</h2>
             {s.intro.map((p, i) => <p key={i}>{p}</p>)}
           </div>
 
           <div className="stage-section">
-            <h2>Responsabilità Principali</h2>
+            <h2>{stageId === 1 ? "Main Responsibilities" : "Responsabilità Principali"}</h2>
             <div className="resp-grid">
               {s.responsibilities.map((r) => (
                 <div key={r.title} className="resp-item">
@@ -110,7 +112,7 @@ export default function StagePage({ stageId, navigate }) {
           </div>
 
           <div className="stage-section">
-            <h2>Progetti Sviluppati</h2>
+            <h2>{stageId === 1 ? "Projects Developed" : "Progetti Sviluppati"}</h2>
             <div className="proj-grid">
               {s.projects.map((p) => (
                 <div key={p.title} className="proj-card">
@@ -127,7 +129,7 @@ export default function StagePage({ stageId, navigate }) {
 
           {media && (
             <div className="stage-section">
-              <h2>Galleria Immagini</h2>
+              <h2>{stageId === 1 ? "Image Gallery" : "Galleria Immagini"}</h2>
               <div className="stage-media-grid">
                 {media.gallery.map((item) => (
                   <figure key={item.src} className="stage-media-card">
@@ -137,7 +139,7 @@ export default function StagePage({ stageId, navigate }) {
                       alt={item.alt}
                       loading="lazy"
                     />
-                    <figcaption>{item.caption}</figcaption>
+                    <figcaption>{stageId === 1 ? (item.caption === "Gruppo" ? "Team" : item.caption === "Lavoro" ? "Work" : item.caption) : item.caption}</figcaption>
                   </figure>
                 ))}
               </div>
@@ -147,20 +149,20 @@ export default function StagePage({ stageId, navigate }) {
                   <div className="stage-document-head">
                     <div>
                       <h3>{media.document.title}</h3>
-                      <p>{media.document.description}</p>
+                      <p>{stageId === 1 ? media.document.description : media.document.descriptionIt}</p>
                     </div>
                     <a href={media.document.url} target="_blank" rel="noopener noreferrer">
-                      Apri PDF
+                      {stageId === 1 ? "Open PDF" : "Apri PDF"}
                     </a>
                   </div>
                   <object
                     className="stage-document-preview"
                     data={media.document.url}
                     type="application/pdf"
-                    aria-label={media.document.label}
+                    aria-label={stageId === 1 ? media.document.label : media.document.labelIt}
                   >
                     <a href={media.document.url} target="_blank" rel="noopener noreferrer">
-                      Apri il PDF
+                      {stageId === 1 ? "Open the PDF" : "Apri il PDF"}
                     </a>
                   </object>
                 </div>
@@ -172,12 +174,12 @@ export default function StagePage({ stageId, navigate }) {
         {/* Sidebar */}
         <div className="sidebar">
           <div className="side-card">
-            <h3>Informazioni Stage</h3>
+            <h3>{stageId === 1 ? "Stage Information" : "Informazioni Stage"}</h3>
             {[
-              { icon: "🏢", label: "Azienda", val: s.title },
-              { icon: "📍", label: "Sede", val: s.location },
-              { icon: "📅", label: "Durata", val: s.period },
-              { icon: "👤", label: "Tutor Aziendale", val: s.tutor },
+              { icon: "🏢", label: stageId === 1 ? "Company" : "Azienda", val: s.title },
+              { icon: "📍", label: stageId === 1 ? "Location" : "Sede", val: s.location },
+              { icon: "📅", label: stageId === 1 ? "Duration" : "Durata", val: s.period },
+              { icon: "👤", label: stageId === 1 ? "Company Tutor" : "Tutor Aziendale", val: s.tutor },
             ].map((x) => (
               <div key={x.label} className="info-row">
                 <span className="info-icon">{x.icon}</span>
@@ -190,7 +192,7 @@ export default function StagePage({ stageId, navigate }) {
           </div>
 
           <div className="side-card">
-            <h3>Competenze Acquisite</h3>
+            <h3>{stageId === 1 ? "Skills Acquired" : "Competenze Acquisite"}</h3>
             {s.skills.map((sk, i) => (
               <SkillBar
                 key={sk.name}
@@ -204,7 +206,7 @@ export default function StagePage({ stageId, navigate }) {
 
           {s.outcomes && s.outcomes.length > 0 && (
             <div className="side-card">
-              <h3>Risultati Ottenuti</h3>
+              <h3>{stageId === 1 ? "Results Achieved" : "Risultati Ottenuti"}</h3>
               {s.outcomes.map((o) => (
                 <div key={o} className="outcome-item">
                   <span className="check" style={{ color: s.color }}>✓</span>
@@ -223,7 +225,7 @@ export default function StagePage({ stageId, navigate }) {
           </button>
         ) : (
           <button className="snav-btn" onClick={() => navigate("home")}>
-            ← Torna alla Home
+            ← {stageId === 1 ? "Back to Home" : "Torna alla Home"}
           </button>
         )}
         {next ? (
@@ -232,7 +234,7 @@ export default function StagePage({ stageId, navigate }) {
           </button>
         ) : (
           <button className="snav-btn" onClick={() => navigate("home")}>
-            Torna alla Home →
+            {stageId === 1 ? "Back to Home" : "Torna alla Home"} →
           </button>
         )}
       </div>
